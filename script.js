@@ -2,9 +2,10 @@ const wheel_ul = document.querySelector("ul");
 const wheel = document.querySelector("ul");
 const spinBtn = document.getElementById("spin-btn");
 const spin = document.getElementById("spin-btn2");
-console.log(spin)
+console.log(spin);
 let currentRotation=0;
-console.log(wheel)
+console.log(wheel);
+console.log(document.getElementById("list-of-names"));
 
 
 function startSpinning() {
@@ -17,8 +18,7 @@ function startSpinning() {
 
   setTimeout(() => {
     decideWinner();;
-}, 2000);
- 
+  }, 2000);
 
 }
 
@@ -58,4 +58,18 @@ function decideWinner(){
 
   console.log(angle)
   alert('Winner is ' + angle);
+}
+
+
+function addItemToTheList(){
+  let newEntry= document.getElementById("addname").value;
+  let ul = document.getElementById("list-of-names");
+
+  if(newEntry){
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(newEntry));
+    ul.appendChild(li);
+    document.getElementById("addname").value=null;
+  }
+
 }

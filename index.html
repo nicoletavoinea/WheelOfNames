@@ -2,100 +2,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wheel Of Names</title>
-    <style>
-      * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body {
-  height: 100vh;
-  background: linear-gradient(135deg, #c3a3f1, #6414e9);
-}
-.wrapper {
-  width: 90%;
-  max-width: 34.37em;
-  max-height: 90vh;
-  background-color: #ffffff;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  padding: 3em;
-  border-radius: 1em;
-  box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
-}
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-#wheel {
-  display: inline-block;
-  max-height: inherit;
-  top: 0;
-  padding: 0;
-  transform-origin: center;
-}
-
-:where(ul){
-  --_items: 10;
-  all: unset;
-  aspect-ratio: 1 / 1;
-  background: crimson;
-  container-type: inline-size;
-  direction: ltr;
-  display: grid;
-  place-content: center start;
-}
-
-li {
-  align-content: center;
-  background: deepskyblue;
-  display: grid;
-  font-size: 5cqi;
-  grid-area: 1 / -1;
-  list-style: none;
-  padding-left: 1ch;
-  transform-origin: center right;
-  width: 50cqi;
-  &:nth-of-type(1) { --_idx: 1; }
-  &:nth-of-type(2) { --_idx: 2; }
-  &:nth-of-type(3) { --_idx: 3; }
-  &:nth-of-type(4) { --_idx: 4; }
-  &:nth-of-type(5) { --_idx: 5; }
-  &:nth-of-type(6) { --_idx: 6; }
-  &:nth-of-type(7) { --_idx: 7; }
-  &:nth-of-type(8) { --_idx: 8; }
-  &:nth-of-type(9) { --_idx: 9; }
-  &:nth-of-type(10) { --_idx: 10; }
-
-}
-
-li {
-  rotate: calc(360deg / var(--_items) * calc(var(--_idx) - 1));
-  background: hsl(calc(360deg / var(--_items) * calc(var(--_idx))), 100%, 75%);
-  height: calc((2 * pi * 50cqi) / var(--_items));
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  clip-path: polygon(0% -2%, 100% 50%, 0% 102%);
-
-}
-
-.wheel-of-fortune {
-  clip-path: inset(0 0 0 0 round 50%); 
-}
-
-
-    </style>
-    <link rel="stylesheet" href="style.css" />  </head>
+    <link rel="stylesheet" href="style.css" />  
+  </head>
   <body>
     <div class="wrapper">
       <div class="container">
         <div id="wheel">
-          <img id="image" src="flower.jpeg" alt="Italian Trulli">
-          <canvas height="100%" width="100%"></canvas>
           <ul class="wheel-of-fortune">
             <li>$1000</li>
             <li>$2000</li>
@@ -107,12 +19,16 @@ li {
             <li>$8000</li>
             <li>$9000</li>
             <li>$10000</li>
-
           </ul>
           </div>
         <button id="spin-btn" onclick="startSpinning()">Spin</button>
         <button id="spin-btn2">Spin 2</button>
       </div>
+    <div class="container">
+      <input type="text" id="addname" name="addname"><br><br>
+      <button id="addbutton" onclick="addItemToTheList()">Add name</button><br><br>
+      <ul id="list-of-names"></ul>
+    </div>
     </div>
     <script src="script.js"></script>
   </body>
